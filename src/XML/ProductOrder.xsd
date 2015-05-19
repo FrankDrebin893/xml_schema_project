@@ -35,14 +35,12 @@
         </xsd:sequence>
     </xsd:complexType>
     
-
-    
     <xsd:complexType name="OrderType">
         <xsd:sequence>
-            <xsd:element name="Item" type="PO:OrderItem"/>
+            <xsd:element name="Item" type="PO:OrderItem" maxOccurs="unbounded"/>
             <xsd:element name="TotalPrice">
                 <xsd:simpleType>
-                    <xsd:restriction>
+                    <xsd:restriction base="xsd:integer">
                         <xsd:minInclusive value="100"/>
                     </xsd:restriction>
                 </xsd:simpleType>
@@ -53,7 +51,7 @@
     <xsd:complexType name="OrderItem">
         <xsd:sequence>
             <xsd:element name="Product" type="xsd:string"/>
-            <xsd:element name="Price" type="xsd:decimal"/>
+            <xsd:element name="Price" type="xsd:integer"/>
         </xsd:sequence>
     </xsd:complexType>
     
