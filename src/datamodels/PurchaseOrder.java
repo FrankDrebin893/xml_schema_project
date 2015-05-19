@@ -12,6 +12,11 @@ package datamodels;
 public class PurchaseOrder {
     private ShippingInformation shippingInformation;
     private Order order;
+    
+    public PurchaseOrder() {
+        shippingInformation = new ShippingInformation();
+        order = new Order();
+    }
 
     public ShippingInformation getShippingInformation() {
         return shippingInformation;
@@ -27,6 +32,11 @@ public class PurchaseOrder {
 
     public void setOrder(Order order) {
         this.order = order;
+    }
+    
+    @Override
+    public String toString(){
+        return "Buyer: \n " + shippingInformation.toString() + "Purchase order: \n " + order.toString();
     }
     
 }

@@ -5,6 +5,7 @@
  */
 package datamodels;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -14,6 +15,11 @@ import java.util.List;
 public class Order {
     private List<OrderItem> orderItems;
     private int totalPrice;
+    
+    public Order() {
+        orderItems = new ArrayList<OrderItem>();
+        //totalPrice = 0;
+    }
 
     public List<OrderItem> getOrderItems() {
         return orderItems;
@@ -31,6 +37,16 @@ public class Order {
         this.totalPrice = totalPrice;
     }
     
-    
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        
+        for(OrderItem x: orderItems) {
+            sb.append(x.toString());
+        }
+        
+        sb.append(" \n Total cost: " + totalPrice + " DKK");
+        return sb.toString();
+    }
     
 }

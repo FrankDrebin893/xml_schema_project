@@ -29,5 +29,8 @@ public class OrderItem {
         this.price = price;
     }
     
-    
+    @Override
+    public String toString() {
+        return "\n " + productName + "    \t " + price;
+    }
 }

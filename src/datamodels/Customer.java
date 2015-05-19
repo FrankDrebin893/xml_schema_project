@@ -13,6 +13,10 @@ public class Customer {
     private String firstName;
     private String lastName;
     private Address address;
+    
+    public Customer() {
+        address = new Address();
+    }
 
     public String getFirstName() {
         return firstName;
@@ -38,5 +42,8 @@ public class Customer {
         this.address = address;
     }
     
-    
+    @Override
+    public String toString() {
+        return "\n Name: " + firstName + " " + lastName + " \n Address: \n " + address.getStreet() + " \n " + address.getPostalCode() + " " + address.getCity() + " \n " + address.getCountry();
+    }
 }

@@ -12,11 +12,20 @@ package datamodels;
 public class ShippingInformation {
     private Customer customer;
 
+    public ShippingInformation() {
+        customer = new Customer();
+    }
+    
     public Customer getCustomer() {
         return customer;
     }
 
     public void setCustomer(Customer customer) {
         this.customer = customer;
+    }
+    
+    @Override
+    public String toString() {
+        return customer.toString();
     }
 }
