@@ -23,20 +23,14 @@ public class XMLDOMJava
         try 
         {
             File myxmlfile = new File("employees.xml");
-            // File myfile = new File("drivers.xml");
-
-            // Use DocumentBuilderFactory instance to create a DocumentBuilder instance - it will be the DOM parser
+            
             DocumentBuilderFactory builderFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder builder = builderFactory.newDocumentBuilder();
             
-            // Parse an XML file using the Java DOM parser and get a Document object to represent the XML document
             Document doc = builder.parse(myxmlfile);           
             
-            // Now the document is ready for traversing
-            // Start with getDocumentElement() that returns the root element
             System.out.println("Root element :" + doc.getDocumentElement().getNodeName());
 
-            // Accessing the child elements, if any
             if (doc.hasChildNodes()) 
             {
                 printNode(doc.getChildNodes());
@@ -50,23 +44,18 @@ public class XMLDOMJava
  
 private static void printNode(NodeList nodeList) 
 {
-    // a loop: one iteration per node
-    // most methods come from org.w3c.dom package (see http://docs.oracle.com/javase/7/docs/api/org/w3c/dom/package-summary.html)
     for (int i = 0; i < nodeList.getLength(); i++) 
     { 
         Node mynode = nodeList.item(i);
         if (mynode.getNodeType() == Node.ELEMENT_NODE) 
         {
-            // get the new node
             System.out.print("\n");
             System.out.println("Node " + mynode.getNodeName() + " opened");
             System.out.print("Node " + mynode.getNodeName() + " value:");
             System.out.println(" { " + mynode.getTextContent() +  " }");
 
-            // Accessing the attributes of an element, if any
             if (mynode.hasAttributes()) 
             {
-                  // get attributes of the node: names and values
                   NamedNodeMap nodeMap = mynode.getAttributes();
 
                   for (int j = 0; j < nodeMap.getLength(); j++) 
@@ -80,7 +69,6 @@ private static void printNode(NodeList nodeList)
 
             if (mynode.hasChildNodes()) 
             {
-                // Recursion: same procedure for the new children
                 printNode(mynode.getChildNodes());
             }
             System.out.println("Node " + mynode.getNodeName() + " closed");
