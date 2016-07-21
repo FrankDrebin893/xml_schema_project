@@ -1,9 +1,5 @@
 
 package xmldomjava;
-/**
- *
- * @author Dora
- */
 
 import java.io.File;
 import javax.xml.parsers.DocumentBuilder;
@@ -16,7 +12,6 @@ import org.w3c.dom.NodeList;
 
 public class XMLDOMJava 
 {
-    //static String whitespace = "";
     
     public static void main(String[] args) 
     {
