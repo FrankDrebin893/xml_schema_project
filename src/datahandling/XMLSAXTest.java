@@ -1,9 +1,5 @@
 
 package datahandling;
-/**
- *
- * @author Dora
- */
  
 import java.io.File;
 import java.io.IOException;
@@ -29,10 +25,8 @@ public class XMLSAXTest
             File myfile = new File("src/XML/productOrder.xml");
             saxParser.parse(myfile, handler);
             
-            //Get Employees list
             PurchaseOrder po = handler.getPurchaseOrder();
             
-            //print employee information
                 System.out.println(po);
         }
         catch (ParserConfigurationException | SAXException | IOException e) 
